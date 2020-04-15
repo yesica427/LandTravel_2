@@ -6,9 +6,9 @@
 {/block}
 
 {block body}
-<div id="region">
+<div id="region" style="background-color:white;border-radius:10px;padding:30px">
 	<div class="rotulo">
-		<h1>HISTORIAL DE RUTAS ASIGNADAS Y CUBIERTAS</h1><br><br>
+		<h1>HISTORIAL DE RUTAS ASIGNADAS Y CUBIERTAS</h1>
 	</div>
 
 	<div class="row control">
@@ -31,7 +31,7 @@
 					</div>
 
 					<div class="descarga">
-						<button class="btn btn-primary" id="descargar" type="button">Descargar</button>
+						<button class="btn btn-primary" id="descargar" type="button">descargar</button>
 					</div>
 				</div>
 			</form>
@@ -47,27 +47,23 @@
 					<th scope="col">Fecha de Inicio</th>
 					<th scope="col">Fecha de Finalización</th>
 					<th scope="col">Horas Trabajadas</th>
-					<th scope="col"># Atendidos</th>
 				</tr>
 			</thead>
 			<tbody class="table-striped">
+
 				{foreach $tours as $tour}
 				<tr>
 					<td>{$tour['nombre']}</td>
 					<td>{$tour['ciudad']}</td>
-					<td>{$tour['fecha_inicio']|date:'%d/%m/%Y'}</td>
-					<td>{$tour['fecha_salida']|date:'%d/%m/%Y'}</td>
+					<td>{$tour['fecha_inicio']}</td>
+					<td>{$tour['fecha_salida']}</td>
 					<td>{$tour['horas']}</td>
-					<td>{$tour['numero_personas']}</td>
 				</tr>
 				{/foreach}
 			</tbody>
 		</table>
 	</div>
 </div>
-{include '../components/loading.latte', titulo => 'loading'}
-{include '../components/error.latte', titulo => 'error'}
-{include '../components/ok.latte', titulo => 'ok'}
 {/block}
 
 {block scripts}

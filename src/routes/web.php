@@ -41,26 +41,24 @@ web()->addGroup('/', function () {
     // Rutas Guias
     web()->addGroup('guias/', function () {
 
-        web()->addRoute(['GET'], 'historial', controller('Guia/historial',['Guia']));
-        web()->addRoute(['GET'], 'historial/descargar', controller('Guia/descargaHistorial',['Guia']));
+        web()->addRoute(['GET'], 'historial', controller('Guia/historial'));
 
-        web()->addRoute(['GET'], 'pagos', controller('Guia/pagos',['Guia']));
-        web()->addRoute(['GET'], 'pagos/{id}', controller('Guia/pago',['Guia']));
-        web()->addRoute(['GET'], 'pagos/{id}/descarga', controller('Guia/descargaPago',['Guia']));
+        web()->addRoute(['GET'], 'pagos', controller('Guia/pagos'));
+        web()->addRoute(['GET'], 'pagos/{id}', controller('Guia/pago'));
+        web()->addRoute(['GET'], 'pagos/{id}/descarga', controller('Guia/descargaPago'));
 
 
-        web()->addRoute(['POST'], 'completar', controller('Guia/completar',['Guia']));
+        web()->addRoute(['POST'], 'completar', controller('Guia/completar'));
 
         // Guias
-        web()->addRoute(['GET'], 'tours', controller('Guia/tours',['Guia']));
+        web()->addRoute(['GET'], 'tours', controller('Guia/tours'));
 
-        web()->addRoute(['GET'], 'rutas/{id}', controller('Guia/rutas',['Guia']));
+        web()->addRoute(['GET'], 'rutas/{id}', controller('Guia/rutas'));
 
-        web()->addRoute(['POST'], 'marcar', controller('Guia/marcar',['Guia']));
+        web()->addRoute(['POST'], 'marcar', controller('Guia/marcar'));
 
-        web()->addRoute(['GET'], 'contrato', controller('Guia/contrato',['Guia']));
-        web()->addRoute(['POST'], 'contrato/modificar', controller('Guia/modificarContrato',['Guia']));
-        web()->addRoute(['GET'], 'contrato/descargar', controller('Guia/descargaContrato',['Guia']));
+        web()->addRoute(['GET'], 'contrato', controller('Guia/contrato'));
+        web()->addRoute(['GET'], 'contrato/descargar', controller('Guia/descargaContrato'));
         /**
          *  La peticion para ver una pagina web debe ser GET para que el navegador la despliegue.
          *  primero define bien la ruta.

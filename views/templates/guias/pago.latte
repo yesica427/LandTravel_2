@@ -6,6 +6,7 @@
 {/block}
 
 {block body}
+
 <h4>Información del pago mensual | {$pago['fecha_pago']|date:'%d/%m/%Y'}</h4>
 <div class="row">
     <div class="col text-right">
@@ -54,15 +55,15 @@
                 {if $pago['horas_extra'] > 0}
                 <tr class="success">
                     {var $deduccion = ($pago['horas'] + $pago['horas_extra'])*0.12}
-                    <td>Deducción con horas extra (12%)</td>
-                    <td>${$pago['deducido']}</td>
+                    <td>Deducción con horas extra</td>
+                    <td>-${$pago['deducido']}</td>
                     
                 </tr>
                 {else}
                 <tr class="success">
-                    <td>Deducción sin horas extra (8%)</td>
+                    <td>Deducción sin horas extra</td>
                     {if $pago['deducido'] > 0}
-                    <td>${$pago['deducido']}</td>
+                    <td>-${$pago['deducido']}</td>
                     {else}
                     <td>${$pago['deducido']}</td>
                     {/if}
@@ -80,12 +81,9 @@
             </thead>
             <tbody>
                 <tr class="success">
-                    <td>Total</td>
-                    <td>${$pago['mensual'] + $pago['extra']}</td>
-                </tr>
-                <tr class="success">
                     <td>Neto</td>
                     <td>${$pago['mensual'] + $pago['extra'] - $pago['deducido']}</td>
+                </tr>
                 </tr>
             </tbody>
         </table>
